@@ -58,7 +58,7 @@
 	        _super.apply(this, arguments);
 	    }
 	    Application.prototype.render = function () {
-	        return (React.createElement("div", null, React.createElement("h1", {className: "win-h1"}, "�����������������")));
+	        return (React.createElement("div", null, React.createElement("h1", {className: "win-h1"}, "Администрирование")));
 	    };
 	    return Application;
 	}(React.Component));

@@ -11,7 +11,7 @@ class Application extends React.Component<void, ApplicationState>{
         return (
             <div>
                 <h1 className="win-h1">
-                    Администрирование
+                    РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ
                 </h1>
             </div>
         )

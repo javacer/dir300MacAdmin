@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "resolution": {
+    "main": ".typings"
+  },
+  "globalDependencies": {
+    "react": "github:DefinitelyTyped/DefinitelyTyped/react/react.d.ts#473232e5dbd179e9ee682fab12f796720f37b118",
+    "react-dom": "github:DefinitelyTyped/DefinitelyTyped/react/react-dom.d.ts#b4bbee8f60560c34bc74b154b283f7ce83a31dae",
+    "winjs": "github:DefinitelyTyped/DefinitelyTyped/winjs/winjs.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+    "react-winjs": "github:nozzlegear/react-winjs.d.ts#57fd47388b966a53a1ed7d0ffb43ad727c76b1dc"
+  },
+  "dependencies": {
+  }
+}

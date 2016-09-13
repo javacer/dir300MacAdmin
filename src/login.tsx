@@ -1,5 +1,4 @@
 import * as React from "react"
-import * as WinJS from "react-winjs"
 
 export default class Login extends React.Component<void, void> {
 

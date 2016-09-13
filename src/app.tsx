@@ -1,12 +1,38 @@
 import * as React from "react"
 import * as ReactDOM  from "react-dom"
-import * as WinJS from "react-winjs"
+import * as ReactWinJS from "react-winjs"
 import Login from "./login"
+import MacList from "./macList"
 
 interface ApplicationState {
 
 }
+
 class Application extends React.Component<void, ApplicationState> {
+
+    private renderLoginSection(){
+        return (
+                <ReactWinJS.Hub.Section
+                    header="Вход"
+                    isHeaderStatic={true}
+                    key="login"
+                >
+                    <Login/>
+                </ReactWinJS.Hub.Section>
+        )
+    }
+
+    private renderListMacSection(){
+        return (
+            <ReactWinJS.Hub.Section
+                header="Список мас адресов"
+                isHeaderStatic={true}
+                key="mac"
+            >
+                <MacList/>
+            </ReactWinJS.Hub.Section>
+        )
+    }
 
     public render() {
         return (
@@ -14,20 +40,14 @@ class Application extends React.Component<void, ApplicationState> {
                 <h1 className="win-h1">
                     Администрирование
                 </h1>
-                <WinJS.Hub>
-                    <WinJS.Hub.Section
-                        header="Вход"
-                        isHeaderStatic={true}
-                        key="login"
-                    >
-                        <Login/>
-                    </WinJS.Hub.Section>
-                </WinJS.Hub>
+                <ReactWinJS.Hub>
+                    {this.renderLoginSection()}
+                    {this.renderListMacSection()}
+                </ReactWinJS.Hub>
             </div>
         )
     }
 }
-
 
 ReactDOM.render(
     React.createElement(Application),

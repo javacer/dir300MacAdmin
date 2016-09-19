@@ -3,6 +3,7 @@ import * as ReactDOM  from "react-dom"
 import * as ReactWinJS from "react-winjs"
 import Login from "./login"
 import MacList from "./macList"
+import UserForm from "./userForm";
 
 interface ApplicationState {
 
@@ -11,14 +12,26 @@ interface ApplicationState {
 class Application extends React.Component<void, ApplicationState> {
 
     private renderLoginSection(){
+    return (
+        <ReactWinJS.Hub.Section
+            header="Вход"
+            isHeaderStatic={true}
+            key="login"
+        >
+            <Login/>
+        </ReactWinJS.Hub.Section>
+    )
+}
+
+    private renderUserFormSection(){
         return (
-                <ReactWinJS.Hub.Section
-                    header="Вход"
-                    isHeaderStatic={true}
-                    key="login"
-                >
-                    <Login/>
-                </ReactWinJS.Hub.Section>
+            <ReactWinJS.Hub.Section
+                header="userForm"
+                isHeaderStatic={true}
+                key="macForm"
+            >
+                <UserForm/>
+            </ReactWinJS.Hub.Section>
         )
     }
 
@@ -42,6 +55,7 @@ class Application extends React.Component<void, ApplicationState> {
                 </h1>
                 <ReactWinJS.Hub>
                     {this.renderLoginSection()}
+                    {this.renderUserFormSection()}
                     {this.renderListMacSection()}
                 </ReactWinJS.Hub>
             </div>

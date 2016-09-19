@@ -1,6 +1,15 @@
 import * as React from "react"
+import AppStore from "./api/store"
 
-export default class Login extends React.Component<void, void> {
+interface LoginProps extends React.ClassAttributes<Login> {
+    store: AppStore
+}
+
+export default class Login extends React.Component<LoginProps, void> {
+
+    private onClick = () => {
+        this.props.store.isAuthorized = true
+    }
 
     public render() {
         return (
@@ -26,7 +35,10 @@ export default class Login extends React.Component<void, void> {
                     />
                 </div>
                 <div>
-                    <button className="win-button">
+                    <button
+                        className="win-button"
+                        onClick={this.onClick}
+                    >
                         Войти
                     </button>
                 </div>

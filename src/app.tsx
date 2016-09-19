@@ -3,26 +3,38 @@ import * as ReactDOM  from "react-dom"
 import * as ReactWinJS from "react-winjs"
 import Login from "./login"
 import MacList from "./macList"
+import {observer} from "mobx-react"
+import AppStore from "./api/store.ts"
 
-interface ApplicationState {
 
+interface ApplicationProps {
+    store: AppStore
 }
 
-class Application extends React.Component<void, ApplicationState> {
+@observer
+class Application extends React.Component<ApplicationProps, void> {
 
-    private renderLoginSection(){
+    private renderLoginSection() {
+        if (this.props.store.isAuthorized) {
+            return null
+        }
         return (
                 <ReactWinJS.Hub.Section
                     header="Вход"
                     isHeaderStatic={true}
                     key="login"
                 >
-                    <Login/>
+                    <Login
+                        store={this.props.store}
+                    />
                 </ReactWinJS.Hub.Section>
         )
     }
 
-    private renderListMacSection(){
+    private renderListMacSection() {
+        if (!this.props.store.isAuthorized) {
+            return null
+        }
         return (
             <ReactWinJS.Hub.Section
                 header="Список мас адресов"
@@ -50,6 +62,6 @@ class Application extends React.Component<void, ApplicationState> {
 }
 
 ReactDOM.render(
-    React.createElement(Application),
+    React.createElement(Application, {store: new AppStore()}),
     document.getElementById("application")
 )

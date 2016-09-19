@@ -16,4 +16,20 @@ export default class AppStore {
     get isAuthorized(){
         return this._isAuthorized
     }
+
+    @observable
+    private _isShowAddMacAdress: boolean = false
+
+    @action
+    private setIsShowAddMacAdress(value: boolean) {
+        this._isShowAddMacAdress = value
+    }
+
+    set isShowAddMacAdress(value: boolean) {
+        this.setIsShowAddMacAdress(value)
+    }
+
+    get isShowAddMacAdress() {
+        return this._isShowAddMacAdress
+    }
 }

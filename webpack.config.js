@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
     entry: "./src/app.tsx",
     output: {
@@ -23,6 +25,12 @@ module.exports = {
             { test: /\.js$/, loader: "source-map-loader" }
         ]
     },
+    plugins: [
+        new webpack.SourceMapDevToolPlugin(
+            "app.js.map", null,
+            "[absolute-resource-path]", "[absolute-resource-path]")
+
+    ]
 
     // When importing a module whose path matches one of the following, just
     // assume a corresponding global variable exists and use that instead.
